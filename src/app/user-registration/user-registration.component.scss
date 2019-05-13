@@ -1,0 +1,10 @@
+@import "src/@fuse/scss/fuse";
+:host /deep/ .mat-horizontal-stepper-header{
+    display:none !important;
+}
+.fieldclass{
+    margin-top: 8%;
+    @include media-breakpoint('lt-sm') {
+        margin-top:13%;
+      }
+}

@@ -1,0 +1,54 @@
+// .tbcls{
+//     font-size:14px;
+// }
+// :host /deep/ button:focus{
+//     outline:none !important;
+// }
+// .btnclass{
+//     height: 31px;
+//     border-radius: 10%;
+//     font-size: 15px;
+// }
+// :host /deep/ .mat-horizontal-stepper-header{
+//     display:none !important;
+// }
+// .stpcls{
+//     margin-top: 16px;
+//     margin-bottom: 37px;
+// }
+// .forbut{
+//     border-radius: 50%;
+//     margin-top: 1%;
+//     margin-bottom: 2%;
+// }
+// :host /deep/ .mat-form-field{
+//     margin-top: 3%;
+// }
+// .prtbtn{
+//     height: 33px;
+//     margin-left: 88%;
+// }
+// .fornext{
+//     border-radius: 50%;
+//     margin-left: 7px;
+// }
+// .forprev{
+//     border-radius: 50%;
+// }
+// @media print {
+//     #printPageButton {
+//       display: none;
+//     }
+//     #searchbtn{
+//         display: none;
+//     }
+   
+//     body, html {
+//         width: 100%;
+//     }
+//   }
+@media print{
+    :host /deep/ .mat-tooltip{
+        color:red;
+    }
+}

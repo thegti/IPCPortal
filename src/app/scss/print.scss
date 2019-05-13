@@ -1,0 +1,87 @@
+.tbcls{
+    font-size:13px; font-family: 'Ubuntu', sans-serif; 
+    letter-spacing: 0.2px; font-weight: 500;
+    border:1px solid #b5af93;
+}
+
+.tbcls thead    {   background:#e0d9b9; border: 1px solid #b5af93!important;
+    font-weight: 400;}
+
+.tbcls th   { border:none!important; color: #6b664f; }
+.tbcls tbody tr:nth-child(even)    { background:#f1f1f1;}
+
+:host /deep/ button:focus{
+    outline:none !important;
+}
+.btnclass{
+    height: 31px;
+    border-radius: 10%;
+    font-size: 15px;
+}
+:host /deep/ .mat-horizontal-stepper-header{
+    display:none !important;
+}
+.stpcls{
+    margin-top: 16px;
+    margin-bottom: 37px;
+}
+.forbut{
+    border-radius: 50%;
+    margin-top: 1%;
+    margin-bottom: 2%;
+}
+:host /deep/ .mat-form-field{
+    margin-top: 3%;
+}
+.prtbtn{
+    height: 33px;
+    margin-top: 1%;
+    float: right;
+    margin-left:3px;
+}
+.fornext{
+    border-radius: 50%;
+    margin-left: 7px;
+}
+.forprev{
+    border-radius: 50%;
+}
+.forAll{
+    padding: 0;
+    float: right;
+    margin-top: 1%;
+    width: 137px;
+    height: 35px;
+    margin-bottom: 2%;
+}
+.for2field{
+    margin-left:13px;
+}
+.hdcls{
+    font-size:18px; font-family: 'Ubuntu', sans-serif; 
+    letter-spacing: 0.5px; font-weight: 700;
+    margin-bottom: 2%;
+}
+@media print {
+    .prtbtn{
+        margin-left: -23%;
+    }
+   
+    #printPageButton {
+      display: none;
+    }
+    #searchbtn{
+        display: none;
+    }
+    #allbtn{
+        display: none; 
+    }
+    #pagebtn{
+        display: none; 
+    }
+    body, html {
+        width: 100%;
+    }
+  }
+
+  .mat-mini-fab.mat-primary   { background:#74909e!important; }

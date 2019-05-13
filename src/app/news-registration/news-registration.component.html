@@ -1,0 +1,59 @@
+<div class="horizontal-stepper-wrapper  myclass1">
+    <h1 class="forhead">News Registration</h1>
+ 
+    <mat-horizontal-stepper class="mat-elevation-z4 myclass1" [linear]="true">
+      
+       <mat-step [stepControl]="horizontalStepperStep1">
+   
+           <form fxLayout="column" [formGroup]="horizontalStepperStep1">
+   
+               <div fxFlex="1 0 auto" fxLayout="column">
+               <!-- <div fxFlex="1 0 auto" fxLayout="row"> -->
+                <mat-form-field class="fieldclass" appearance="outline" fxFlex="100">
+                    <mat-label>Title</mat-label>
+                    <input matInput formControlName="title" required>
+                    <mat-error>Title is required!</mat-error>
+              </mat-form-field>
+              </div>
+              <div fxFlex="1 0 auto" fxLayout="column">
+                <mat-form-field appearance="outline" fxFlex="100">
+                  <mat-label>Publish Date</mat-label>
+                 <input matInput   type="date" formControlName="publish"> 
+                </mat-form-field>
+                </div>
+              <div fxFlex="1 0 auto" fxLayout="column">
+              <mat-form-field appearance="outline" fxFlex="100">
+                <mat-label>Description</mat-label>
+                <input matInput formControlName="description"> 
+             </mat-form-field>
+             </div>
+             <div fxFlex="1 0 auto" fxLayout="column">
+                <mat-form-field appearance="outline" fxFlex="100">
+                    <mat-label>Details</mat-label>
+                    <textarea matInput formControlName="details"></textarea> 
+               </mat-form-field>
+               </div>
+            <div fxFlex="1 0 auto" fxLayout="column">
+                    <mat-checkbox labelPosition='before' class="example-margin" formControlName="active">Active</mat-checkbox>
+              </div>
+            
+          
+              <div fxLayout="row" fxLayoutAlign="center center">
+           <button mat-raised-button  *ngIf="!enableclose" type="button" [disabled]="horizontalStepperStep1.invalid" color="accent" (click)="register()">
+               Submit
+           </button>
+           <button mat-raised-button  (click)="goBack()" class="forCancel"  color="accent">
+            Cancel
+          </button>
+           </div>
+           </form>
+   
+       </mat-step>
+   
+     </mat-horizontal-stepper>  
+   
+   </div>  
+   <button mat-icon-button class="warn mat-elevation-z2 theme-options-button"
+   (click)="toggleSidebarOpen('themeOptionsPanel')">
+   <mat-icon>settings</mat-icon>
+   </button>

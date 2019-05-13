@@ -1,0 +1,116 @@
+<!-- <head>
+    <meta charset="utf-8">
+  
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+ 
+
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.scss" rel="stylesheet">
+  
+    
+    <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  
+   
+    <link href="assets/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet"> 
+  
+    
+    <script src="assets/vendor/jquery/jquery.min.js"></script>
+      <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  
+     
+      <script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+  
+     
+  
+      <script src="assets/vendor/datatables/jquery.dataTables.js"></script>
+      <script src="assets/vendor/datatables/dataTables.bootstrap4.js"></script>
+  
+
+  
+  </head>
+  <body> -->
+    <div class="container">
+      <button mat-mini-fab id="searchbtn" (click)="enbleSearch()" class="forbut" color="primary" matTooltip="Search">
+              <mat-icon>search</mat-icon>
+               </button>
+               <button mat-raised-button *ngIf="!enableSearch" id="printPageButton" class="prtbtn" (click)="print()"  color="accent"  aria-label="Add event"
+               matTooltip="Print">
+               <mat-icon>local_printshop</mat-icon>
+             </button> 
+             <button mat-raised-button *ngIf="enableAll" id="allbtn" class="forAll" (click)="getAllRegions()"  color="primary">
+              View All Regions
+           </button>
+                <div class="horizontal-stepper-wrapper" *ngIf="enableSearch">
+                  
+                  <mat-horizontal-stepper class="mat-elevation-z4 stpcls" [linear]="true">
+                    
+                      <mat-step [stepControl]="searchForm">
+      
+                          <form fxLayout="column" [formGroup]="searchForm">
+                  
+                             
+                              <div fxFlex="1 0 auto" fxLayout="row">
+                                    <mat-form-field appearance="outline" fxFlex="100">
+                                       <mat-label>Select Country</mat-label>
+                                       <mat-select formControlName="country"  #singleSelect required>
+                                          <ngx-mat-select-search [formControl]="countryFilterCtrl" [placeholderLabel]="'Search Country...'"  [noEntriesFoundLabel]="'No matching Country found'"></ngx-mat-select-search>
+                                          <mat-option *ngFor="let country of filteredCount | async" [value]="country['CNT_PK']">
+                                            {{country['CNT_NAME']}}
+                                          </mat-option>
+                                        </mat-select>
+                                     </mat-form-field>
+                              </div>
+                              <div fxLayout="row" fxLayoutAlign="center center">
+                                  <button class="mr-8 btnclass" mat-raised-button (click)="closeFun()" type="button" color="primary">
+                                      Cancel
+                                  </button>
+                                  <button mat-raised-button class="btnclass"  (click)="filterRegion()"  color="accent">
+                                     Search
+                                  </button>
+                              </div>
+                  
+                          </form>
+                  
+                      </mat-step> 
+                 </mat-horizontal-stepper>
+          </div>
+<div id="print-section">          
+  <div class="table-responsive">
+          <div fxLayout="row" fxLayoutAlign="center center">
+                  <h1 class="hdcls">Region List</h1>
+          </div>
+          <table class="table tbcls">
+            <thead>
+              <tr>
+                  <th style="width:4%">ID</th>
+                  <th style="width:20%">Name</th>
+                  <th style="width:20%">President</th>
+                  <th style="width:10%">Mobile</th>
+                  <th style="width:30%">Email</th>
+              </tr>
+            </thead>
+    
+            <tbody>
+  
+                <tr *ngFor="let reg of regionlist">
+                  <td style="width:4%" >{{reg['RGN_ID']}}</td>
+                  <td style="width:20%">{{reg['RGN_NAME']}}</td>
+                  <td style="width:20%">{{reg['RGN_PRESIDENT_TEXT']}}</td>
+                  <td style="width:10%">{{reg['RGN_MOBIL']}}</td>
+                  <td style="width:30%">{{reg['RGN_EMAIL']}}</td>
+                </tr></tbody>
+    
+          </table>
+        </div>
+</div>          
+        <div fxLayout="row" fxLayoutAlign="center center">
+        <button  mat-mini-fab type="button" class="forprev" [disabled]="disableprev" (click)="previousPage()">
+          <mat-icon>keyboard_arrow_left</mat-icon>
+      </button>
+      <button  mat-mini-fab type="button" class="fornext" [disabled]="disablenext" (click)="nextPage()">
+          <mat-icon>keyboard_arrow_right</mat-icon>
+      </button> 
+      </div>
+      </div>
+
+<!-- </body> -->
+

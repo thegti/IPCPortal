@@ -1,0 +1,92 @@
+
+
+        <!-- <form  [formGroup]="stprPrimary" class="upload-member-template">
+
+          
+            <br>
+            <div class="member-imports">
+               
+                <h2>IMPORT MEMBERS</h2>
+                    <input type="file" #profilepic formControlName="photo" (change)="onSelectionchange($event)" style="display:none">
+                    <button mat-raised-button type="button" color="primary" class="forupload" (click)="profilepic.click()">Select File</button>
+               
+           
+              </div>
+            </form>
+      
+
+            <div fxLayout="row" fxLayoutAlign="center center">
+
+<button  (click)="register()"  color="accent">
+  Import
+</button>
+</div> -->
+
+<!-- <table>
+  <tr>
+    <th>IMPORT MEMBERS</th>
+  <td>
+      <input type="file" #profilepic formControlName="photo" (change)="onSelectionchange($event)" style="display:none">
+      <button mat-raised-button type="button" color="primary" class="forupload" (click)="profilepic.click()">Select File</button>
+  </td>
+  <td><button  (click)="register()"  color="accent" class="import-button">
+      Import
+    </button></td>
+  </tr>
+</table> -->
+
+<div class="horizontal-stepper-wrapper  myclass1 myclass2">
+  <h1 class="forhead">Import Members</h1>
+      <mat-horizontal-stepper  class="mat-elevation-z4 myclass1" [linear]="true"  #stepper>
+     
+         <mat-step [stepControl]="horizontalStepperStep1">
+     
+             <form fxLayout="column" [formGroup]="horizontalStepperStep1">
+     
+                
+                 <br>
+                 <!-- <div fxFlex="1 0 auto" fxLayout="column"> -->
+                
+                  <div  fxLayout="row">
+                  <mat-form-field appearance="outline" fxFlex="100">
+                     
+                      <input matInput formControlName="name" class="name" required>
+                      <input type="file" #profilepic  formControlName="photo" (change)="onSelectionchange($event)" (change)="detectFiles($event)" style="display:none">
+                      <button mat-raised-button type="button" color="primary" class="forupload" (click)="profilepic.click()">Select File</button>
+                      <div class="output" > {{ fileName }} </div>
+                </mat-form-field>
+            
+                   </div>
+                
+            
+               <!-- <div formArrayName="address">
+                 <div *ngFor="let item of getAddress.controls; let pointIndex=index" [formGroupName]="pointIndex"> -->
+                        
+                   <!-- </div>
+             </div> -->
+            
+            
+             
+             <div fxLayout="row" fxLayoutAlign="center center">
+                 
+              <button mat-raised-button  (click)="register()"  color="accent">
+                 SAVE
+              </button>
+            
+             
+          </div>
+             </form>
+     
+         </mat-step>
+     
+    
+     
+      
+     
+       </mat-horizontal-stepper>  
+     
+     </div>  
+     <button mat-icon-button class="warn mat-elevation-z2 theme-options-button"
+     (click)="toggleSidebarOpen('themeOptionsPanel')">
+     <mat-icon>settings</mat-icon>
+     </button>

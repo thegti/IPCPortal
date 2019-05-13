@@ -1,0 +1,31 @@
+// Import Fuse core library
+@import "@fuse/scss/core";
+
+// Import app.theme.scss
+@import "app/app.theme";
+.myclass2 .mat-step-icon-content
+{
+    display: none !important;
+   
+}
+.myclass2 .mat-step-icon-state-number
+{
+    background-color: #fff !important;
+}
+
+.pageheader     {   padding-left:1%;
+    font-family: 'Ubuntu', sans-serif!important; 
+    letter-spacing: 0.2px; font-size:17px!important; font-weight: 500!important; 
+    color:#016879;}
+
+/* ------------COMMON--------------- */
+
+/* Text */ 
+.txt-rgt        {   text-align:right;}
+
+/* Width */
+.w22            {   width:22px!important;}
+
+/* Margin */
+.btn-margn      {   margin:0px 5px 0px 5px!important;}
+

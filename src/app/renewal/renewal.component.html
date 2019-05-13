@@ -1,0 +1,60 @@
+<div class="mat-elevation-z8 tableclass">
+    <button mat-mini-fab (click)="addMember()" class="addbtn" color="accent" matTooltip="Add Members For Renewal">
+            <mat-icon>add</mat-icon>
+    </button>
+    <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+          </mat-form-field>
+<table mat-table [dataSource]="dataSource" matSort>
+   <!--ID Column-->
+    <ng-container matColumnDef="from">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> From </th>
+        <td mat-cell *matCellDef="let row"> {{row['MRH_DATE'].substring(0,10)}}</td>
+    </ng-container>
+  <!-- Due Date Column -->
+  <ng-container matColumnDef="duedate">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Due Date </th>
+    <td mat-cell *matCellDef="let row"> {{row['MRH_DUE_DATE_NEW'].substring(0,10)}} </td>
+  </ng-container>
+
+
+  <!-- Remarks Column -->
+  <ng-container matColumnDef="remarks">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Remarks </th>
+    <td mat-cell *matCellDef="let row"> {{row['MRH_REMARKS']}} </td>
+  </ng-container>
+
+  <!-- Church Column -->
+ 
+  <ng-container matColumnDef="view">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+    <td mat-cell *matCellDef="let row">
+        <!-- <button mat-mini-fab   color="basic" (click)="forEdit(row)" matTooltip="Edit" class="btn-list">
+        <mat-icon>edit</mat-icon>
+         </button> -->
+         <button mat-mini-fab   color="basic" class="forview btn-list" (click)="forView(row)" matTooltip="View">
+                <mat-icon>remove_red_eye</mat-icon>
+                 </button>
+                 <!-- <button mat-mini-fab   color="basic" class="forview btn-list" (click)="forDelete(row)" matTooltip="Delete">
+                    <mat-icon>delete</mat-icon>
+                </button> -->
+        </td>
+  </ng-container>
+ 
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+  </tr>
+</table>
+    <button  mat-mini-fab type="button" class="forprev" [disabled]="disableprev" (click)="previousPage()">
+        <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+    <button  mat-mini-fab type="button" class="fornext" [disabled]="disablenext" (click)="nextPage()">
+        <mat-icon>keyboard_arrow_right</mat-icon>
+    </button> 
+
+</div>
+<button mat-icon-button class="warn mat-elevation-z2 theme-options-button"
+(click)="toggleSidebarOpen('themeOptionsPanel')">
+<mat-icon>settings</mat-icon>
+</button>

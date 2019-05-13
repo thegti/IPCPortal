@@ -1,0 +1,61 @@
+<div class="mat-elevation-z8 tableclass">
+    <button mat-mini-fab (click)="addNewsnav()" class="addbtn" color="accent" matTooltip="Add New News">
+            <mat-icon>add</mat-icon>
+             </button>
+         
+    <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+          </mat-form-field>
+<table mat-table [dataSource]="dataSource" matSort>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="Name">
+    <th mat-header-cell *matHeaderCellDef style="width:20%" > Title </th>
+    <td mat-cell *matCellDef="let row" style="width:20%"> {{row['NWE_TITLE']}}</td>
+  </ng-container>
+
+
+  <!-- Email Column -->
+  <ng-container matColumnDef="Email">
+    <th mat-header-cell *matHeaderCellDef style="width:30%" > Description </th>
+    <td mat-cell *matCellDef="let row" style="width:30%"> {{row['NWE_DESC']}} </td>
+  </ng-container>
+
+  <!-- Status Column -->
+  <ng-container matColumnDef="Status">
+    <th mat-header-cell *matHeaderCellDef style="width:7%"> Status </th>
+    <td mat-cell *matCellDef="let row" style="width:7%">
+        <span *ngIf="row['NWE_ACTIVE'] == 1">Active</span>
+        <span *ngIf="row['NWE_ACTIVE'] == 0">Inactive</span>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="Edit">
+    <th mat-header-cell *matHeaderCellDef style="width:14%" ></th>
+    <td mat-cell *matCellDef="let row" style="width:14%">
+        <button mat-mini-fab   color="basic" (click)="forEdit(row)" matTooltip="Edit"  class="btn-list">
+        <mat-icon>edit</mat-icon>
+         </button>
+         <button mat-mini-fab   color="basic" class="forview" (click)="forView(row)" matTooltip="View"  class="btn-list">
+                <mat-icon>remove_red_eye</mat-icon>
+                 </button>
+                 <button mat-mini-fab   color="basic" class="forview" (click)="forDelete(row)" matTooltip="Delete"  class="btn-list">
+                    <mat-icon>delete</mat-icon>
+                </button>
+        </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+  </tr>
+</table>
+    <button  mat-mini-fab type="button" class="forprev" [disabled]="disableprev" (click)="previousPage()">
+        <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+    <button  mat-mini-fab type="button" class="fornext" [disabled]="disablenext" (click)="nextPage()">
+        <mat-icon>keyboard_arrow_right</mat-icon>
+    </button> 
+</div>
+<button mat-icon-button class="warn mat-elevation-z2 theme-options-button"
+(click)="toggleSidebarOpen('themeOptionsPanel')">
+<mat-icon>settings</mat-icon>
+</button>

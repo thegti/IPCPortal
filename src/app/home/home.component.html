@@ -1,0 +1,279 @@
+<html lang="en">
+<head>
+<title>Indian Pentecostal :: LOGIN</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+
+<!---------- CSS -------------->
+<!--<link rel="stylesheet" type="text/css" href="assets/loginasset/css/main.css"/>-->
+<!--<link rel="stylesheet" type="text/css" href="assets/loginasset/css/bootstrap.css"/>-->
+<!--<link rel="stylesheet" type="text/css" href="assets/loginasset/css/animate.css">-->
+
+<!---------- FONT -------------->
+<!--<link rel="stylesheet" type="text/css" href="assets/loginasset/css/fonts.css"/>-->
+
+<!--[if lt IE 8 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 8)|!(IE)]><!--><!--<![endif]-->
+</head>
+
+<body>
+<div class="container-fluid">
+	<div class="row">
+    	<div class="col-lg-7 left-part" *ngFor="let council of council">
+        	<section class="row memb-main">
+            	<h1><img src="assets/loginasset/images/gen-executives.png" alt="General Exective Members" width="310"/></h1>
+                <div class="col-lg-3 col-sm-3 placeholder wow fadeIn" data-wow-delay="0.1s">
+                    <h3>General President</h3>
+                    <img src="{{imgsrc[0]}}" class="display-img1"  onError="this.src='assets/loginasset/images/display-img.jpg';"/>
+                   
+                    <h2>{{council['CEM_PRESIDENT_TITLE']}} <span>{{council['CEM_PRESIDENT_TEXT']}}</span></h2>
+                    <!-- <h4>{{council['CEM_PRESIDENT_MOBIL']}}</h4> -->
+                    <h4>{{council['CEM_PRESIDENT_EMAIL']}}</h4>
+                    
+                </div>
+                
+                <div class="col-lg-3 col-sm-3 placeholder wow fadeIn" data-wow-delay="0.4s">
+                        <h3>General Secretary</h3>
+                        <img src="{{imgsrc[1]}}" class="display-img1"  onError="this.src='assets/loginasset/images/display-img.jpg';"/>
+                        
+                        <h2>{{council['CEM_SCRETARY_TITLE']}} <span>{{council['CEM_SECRETARY_TEXT']}}</span></h2>
+                        <!-- <h4>{{council['CEM_SCRETARY_MOBIL']}}</h4> -->
+                        <h4>{{council['CEM_SCRETARY_EMAIL']}}</h4>
+                        
+              
+                 </div>  
+                            
+                <div class="col-lg-3 col-sm-3 placeholder wow fadeIn" data-wow-delay="0.7s">
+                        <h3>General Treasurer</h3>
+                        <img src="{{imgsrc[2]}}" class="display-img1"  onError="this.src='assets/loginasset/images/display-img.jpg';"/>
+      
+                        <h2>{{council['CEM_TREASURER_TITLE']}} <span>{{council['CEM_TREASURER_TEXT']}}</span></h2>
+                        <!-- <h4>{{council['CEM_TREASURER_MOBIL']}}</h4> -->
+                        <h4>{{council['CEM_TREASURER_EMAIL']}}</h4>
+                        
+               
+                </div> 
+                    
+                <div class="col-lg-3 col-sm-3 placeholder margtop15 wow fadeIn" data-wow-delay="0.15s">
+                        <h3>General Vice President</h3>
+                        <img src="{{imgsrc[3]}}" class="display-img1" onError="this.src='assets/loginasset/images/display-img.jpg';"/>
+                        <h2>{{council['CEM_VICE_PRESIDENT1_TITLE']}} <span>{{council['CEM_VICE_PRESIDENT1_TEXT']}}</span></h2>
+
+                        <!-- <h4>{{council['CEM_VICE_PRESIDENT1_MOBIL']}}</h4> -->
+                        <h4>{{council['CEM_VICE_PRESIDENT1_EMAIL']}}</h4>
+                        
+                </div>
+                    
+                 <div class="col-lg-3 col-sm-3 placeholder margtop15 wow fadeIn" data-wow-delay="0.18s">
+                        <h3>General Vice President</h3>
+                        <img src="{{imgsrc[4]}}" class="display-img1"  onError="this.src='assets/loginasset/images/display-img.jpg';"/>
+                        <h2>{{council['CEM_VICE_PRESIDENT2_TITLE']}} <span>{{council['CEM_VICE_PRESIDENT2_TEXT']}}</span></h2>
+                        <!-- <h4>{{council['CEM_VICE_PRESIDENT2_MOBIL']}}</h4> -->
+                        <h4>{{council['CEM_VICE_PRESIDENT2_EMAIL']}}</h4>
+                        
+                 </div>
+                    
+                 <div class="col-lg-3 col-sm-3 placeholder margtop15 wow fadeIn" data-wow-delay="0.21s">
+                        <h3>General Joint Secretary</h3>
+                    <img src="{{imgsrc[5]}}" class="display-img1"  onError="this.src='assets/loginasset/images/display-img.jpg';"/>
+                    
+                    <h2>{{council['CEM_JOINT_SECRETARY_TITLE']}} <span>{{council['CEM_JOINT_SECRETARY_TEXT']}}</span></h2>
+                    <!-- <h4>{{council['CEM_JOINT_SECRETARY_MOBIL']}}</h4> -->
+                    <h4>{{council['CEM_JOINT_SECRETARY_EMAIL']}}</h4>
+                    
+                 </div>    
+                  
+            </section>
+      </div>
+        <div class="col-lg-5 right-part">
+        	<section class="row">
+            	<h1><img src="assets/loginasset/images/logo.png" width="322" height="42" alt="logo"></h1>
+                <div class="col-lg-6 col-md-6 col-sm-12 news-main">
+                    <h2>Latest News</h2>
+                    <marquee behavior="scroll" direction="up" onmouseover="this.stop()" onmouseout="this.start()" style="height:422px;">
+                    <div class="forhead" *ngFor="let news of news;let i=index">
+                        <span class="head"><b>{{news['NWE_TITLE']}}</b></span>
+                        <p class="content">
+                        <span class="desc-head">{{news['NWE_DESC']}}</span><br>
+                         {{news['NWE_DETAILS']}}</p> 
+                          <br>
+                     </div>
+                    </marquee>
+                </div>
+                <div class="login-main col-lg-5 col-md-5 col-sm-12 wow fadeIn" data-wow-delay="2.5s">
+                
+                    <form fxLayout="column" fxLayoutAlign="start"  name="form"
+                    [formGroup]="loginform"> 
+   
+ 
+ 
+    
+ 
+                          <div fxLayout="row" fxLayoutAlign="start" >
+                                <mat-form-field appearance="outline" fxFlex="100">
+                                     <mat-label>Username</mat-label>
+                                     <input matInput formControlName="username">
+                                     <mat-icon matSuffix class="disabled-text">account_circle</mat-icon> 
+                                     <mat-error>userName is required!</mat-error>
+                                 </mat-form-field>
+                          </div>
+                          <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
+                          <mat-form-field appearance="outline" fxFlex="100" style="top:0.5em;">
+                             <mat-label>Password</mat-label>
+                            <input matInput  type="password" formControlName="password">
+                            <mat-icon matSuffix class="disabled-text">lock</mat-icon>
+                            <mat-error>
+                                  <span *ngIf="loginform.value.password==''" > Password is required!</span>
+                                  <span *ngIf="loginform.value.password!='' && loginform.controls.password['status']=='INVALID'" >Invalid Password(minimum length is 6)</span>
+                   
+                             </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div fxLayoutAlign="center">
+ 
+                            <button mat-raised-button color="accent" class="sign-btn" [disabled]="loginform.invalid" (click)="onsubmit()">Sign In</button>
+                  </div>
+                  <div class="btn" fxLayoutAlign="center">
+                        <button mat-raised-button class="forgot-btn">Forgot Password?</button>
+                  </div>
+ 
+                </form>
+                </div>
+            </section>
+            <footer>
+            	<div class="col-lg-6 col-md-6 col-sm-12 copyright">&copy;2018 IPC.International  All Rights Reserved</div>
+                <div class="col-lg-6 col-md-6 col-sm-12 gti"><img src="assets/loginasset/images/gti.png" width="55" height="23" alt="GrandTrust InfoTech-logo"><p><a href="http://www.thegti.com" title="GrandTrust InfoTech" target="_blank">www.thegti.com</a></p></div>
+            </footer>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script type="application/javascript" src="./js/bootstrap.js"></script>
+<script type="application/javascript" src="./js/wow.min.js"></script>
+<script type="application/javascript" src="./js/custom.js"></script>
+</body>
+</html>
+<!-- 
+<html lang="en">
+<head>
+<title>Indian Pentecostal :: LOGIN</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+</head>
+
+<body>
+<div class="container-fluid">
+	<div class="row">
+    	<div class="col-lg-7 left-part" *ngFor="let council of council">
+        	<section class="row memb-main">
+            	<h1><img src="assets/loginasset/images/gen-executives.png" alt="General Exective Members" width="310"/></h1>
+                <div class="col-lg-3 col-sm-3 placeholder wow fadeIn" data-wow-delay="0.1s">
+                	<img src="{{imgsrc[0]}}" class="display-img1" alt="General President"/>
+                    <h2>{{council['CEM_PRESIDENT_TEXT']}}</h2>
+                    <h3>President</h3>
+                </div>
+                
+                <div class="col-lg-3 col-sm-3 placeholder wow fadeIn" data-wow-delay="0.4s">
+                        <img src="{{imgsrc[1]}}" class="display-img1" alt="Jr.Vice President"/>
+                        <h2>{{council['CEM_SECRETARY_TEXT']}}</h2>
+                        <h3>Secretary</h3>
+              
+                 </div>  
+                            
+                <div class="col-lg-3 col-sm-3 placeholder wow fadeIn" data-wow-delay="0.7s">
+                        <img src="{{imgsrc[2]}}" class="display-img1" alt="Vice President"/>
+                        <h2>{{council['CEM_TREASURER_TEXT']}}</h2>
+                        <h3>Treasurer</h3>
+               
+                </div> 
+                    
+                <div class="col-lg-3 col-sm-3 placeholder margtop25 wow fadeIn" data-wow-delay="0.15s">
+                        <img src="{{imgsrc[3]}}" class="display-img2" alt="General Treasurer"/>
+                        <h2>{{council['CEM_VICE_PRESIDENT1_TEXT']}}</h2>
+                        <h3>Vice President</h3>
+                </div>
+                    
+                 <div class="col-lg-3 col-sm-3 placeholder margtop25 wow fadeIn" data-wow-delay="0.18s">
+                        <img src="{{imgsrc[4]}}" class="display-img2" alt="General Secretary"/>
+                        <h2>{{council['CEM_VICE_PRESIDENT2_TEXT']}}</h2>
+                        <h3>Vice President</h3>
+                 </div>
+                    
+                 <div class="col-lg-3 col-sm-3 placeholder margtop25 wow fadeIn" data-wow-delay="0.21s">
+                	<img src="{{imgsrc[5]}}" class="display-img2" alt="Jt. Secretary"/>
+                    <h2>{{council['CEM_JOINT_SECRETARY_TEXT']}}</h2>
+                    <h3>Joint Secretary</h3>
+                 </div>    
+                  
+            </section>
+      </div>
+        <div class="col-lg-5 right-part">
+        	<section class="row">
+            	<h1><img src="assets/loginasset/images/logo.png" width="322" height="42" alt="logo"></h1>
+                <div class="col-lg-6 col-md-6 col-sm-12 news-main">
+                    <h2>Latest News</h2>
+                    <marquee behavior="scroll" direction="up" onmouseover="this.stop()" onmouseout="this.start()" style="height:422px;">
+                    <div class="forhead" *ngFor="let news of news;let i=index">
+                        <span class="head"><b>{{news['NWE_TITLE']}}</b></span>
+                        <p class="content">
+                        <span class="desc-head">{{news['NWE_DESC']}}</span><br>
+                         {{news['NWE_DETAILS']}}</p> 
+                          <br>
+                     </div>
+                    </marquee>
+                </div>
+                <div class="login-main col-lg-5 col-md-5 col-sm-12 wow fadeIn" data-wow-delay="2.5s">
+                
+                    <form fxLayout="column" fxLayoutAlign="start"  name="form"
+                    [formGroup]="loginform"> 
+   
+ 
+ 
+    
+ 
+                          <div fxLayout="row" fxLayoutAlign="start" >
+                                <mat-form-field appearance="outline" fxFlex="100">
+                                     <mat-label>Username</mat-label>
+                                     <input matInput formControlName="username">
+                                     <mat-icon matSuffix class="disabled-text">account_circle</mat-icon> 
+                                     <mat-error>userName is required!</mat-error>
+                                 </mat-form-field>
+                          </div>
+                          <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
+                          <mat-form-field appearance="outline" fxFlex="100" style="top:0.5em;">
+                             <mat-label>Password</mat-label>
+                            <input matInput  type="password" formControlName="password">
+                            <mat-icon matSuffix class="disabled-text">lock</mat-icon>
+                            <mat-error>
+                                  <span *ngIf="loginform.value.password==''" > Password is required!</span>
+                                  <span *ngIf="loginform.value.password!='' && loginform.controls.password['status']=='INVALID'" >Invalid Password(minimum length is 6)</span>
+                   
+                             </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div fxLayoutAlign="center">
+ 
+                            <button mat-raised-button color="accent" class="sign-btn" [disabled]="loginform.invalid" (click)="onsubmit()">Sign In</button>
+                  </div>
+                  <div class="btn" fxLayoutAlign="center">
+                        <button mat-raised-button class="forgot-btn">Forgot Password?</button>
+                  </div>
+ 
+                </form>
+                </div>
+            </section>
+            <footer>
+            	<div class="col-lg-6 col-md-6 col-sm-12 copyright">&copy;2018 IPC.International  All Rights Reserved</div>
+                <div class="col-lg-6 col-md-6 col-sm-12 gti"><img src="assets/loginasset/images/gti.png" width="55" height="23" alt="GrandTrust InfoTech-logo"><p><a href="http://www.thegti.com" title="GrandTrust InfoTech" target="_blank">www.thegti.com</a></p></div>
+            </footer>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script type="application/javascript" src="./js/bootstrap.js"></script>
+<script type="application/javascript" src="./js/wow.min.js"></script>
+<script type="application/javascript" src="./js/custom.js"></script>
+</body>
+</html> -->

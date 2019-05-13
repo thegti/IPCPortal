@@ -1,0 +1,81 @@
+@import "src/@fuse/scss/fuse";
+.listclass{
+    display: block;
+    position: inherit;
+}
+:host /deep/ .mat-grid-tile .mat-figure {
+    top: 89px;
+    left: 31px;
+    display: table-row;
+}
+.display-img1{
+    border-radius:50%;
+    height: 40%;
+    width: 100%;
+}
+.forHead{
+    margin-left: 29px; 
+}
+.myimg{
+    width:183px !important;
+}
+.forh3{
+    font-size: 15px !important;
+    margin-top: 12px;
+}
+.editbtn{
+    margin-left: 1%;
+    margin-top: 1%;
+    border-radius:50% !important;
+  //  margin-bottom: -40px;
+}
+:host /deep/ .mat-horizontal-stepper-header{
+    display:none !important;
+}
+.myclass1{
+    margin-top:3%;
+}
+
+.btnclass{
+    height: 34px;
+}
+:host /deep/ button:focus{
+    outline:none !important;
+}
+.for2field{
+    margin-top: 3%;
+    margin-left: 1%;
+}
+.forfrm{
+    margin-top: -1%;
+}
+.fordesg{
+    margin-left: 30%;
+}
+// .forfrmfield{
+//     margin-left: -35% !important;
+//     margin-top: 4% !important;
+// }
+.fordiv{
+  flex-direction:column !important;  
+}
+:host /deep/ .display-img1{
+    height: 170px !important;
+    min-height: 170px !important
+}
+.forform1{
+    @include media-breakpoint('lt-sm') {
+        flex-direction: column !important;
+    } 
+}
+.forspacing{
+    margin-left:5px;
+}
+h1.council-member
+{
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+}
+.mat-header-cell    {   color:#425d5d; font-family: 'Ubuntu', sans-serif; 
+    letter-spacing: 0.5px; font-size:13px; font-weight: 500;}

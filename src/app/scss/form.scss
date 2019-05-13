@@ -1,0 +1,95 @@
+@import "src/@fuse/scss/fuse";
+body{
+    background-image: url('../../assets/images/backgrounds/dark-material-bg.jpg');
+}
+
+.myclass{
+    width:35%;
+    height: 560px;
+    margin-top:20px;
+    margin-left:30%;
+    margin-inline-end: 0%;
+}
+.forspacing{
+    margin-left:5px;
+    margin-right: 10px;
+}
+.example-radio-group {
+    display: inline-flex;
+    flex-direction: column;
+  }
+  
+  .example-radio-button {
+    margin: 5px;
+  }
+  
+  .example-selected-value {
+    margin: 15px 0;
+  }
+  :host {
+
+    .content {
+
+        form {
+            width: 100%;
+            max-width: 800px !important;
+        }
+
+        .form-errors-model {
+            flex: 1;
+
+            code {
+                background: none !important;
+            }
+        }
+
+        .horizontal-stepper-wrapper,
+        .vertical-stepper-wrapper {
+            max-width: 800px;
+            max-height: 30%;
+            overflow: scroll;
+        }
+    }
+}
+.myclass1{
+  width:800px;
+  margin-left:94px;
+  margin-top: 10px;
+  @include media-breakpoint('lt-md') {
+    width:98%;
+    margin-left:3px;
+  }
+}
+.for2field{
+    margin-left:13px;
+}
+:host /deep/ .mat-select-search-no-entries-found{
+    display: none !important;
+}
+:host /deep/ .mat-horizontal-stepper-header{
+    margin-top:6% !important;
+}
+:host /deep/ .mat-stepper-horizontal-line {
+    margin-top:6% !important;
+}
+.forhead{
+    margin-left: 46%;
+    margin-bottom: -7%;
+    font-weight: bold;
+    @include media-breakpoint('lt-sm') {
+        margin-left:26%;
+        margin-bottom: -13%;
+      }
+}
+.forCancel{
+    margin-left:5px;
+}
+@include media-breakpoint('xs') {
+    .formakingdynamic{
+        flex-direction:column !important;
+    }
+    .for2field{
+        margin-left:0px;
+    }
+   
+}

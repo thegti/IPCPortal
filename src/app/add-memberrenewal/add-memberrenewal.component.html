@@ -1,0 +1,173 @@
+<div class="dialog-content-wrapper">
+    <mat-toolbar class="mat-accent m-0 toolclass">
+       <mat-toolbar-row fxFlex fxLayout="row" fxLayoutAlign="space-between center">
+           <span class="title dialog-title" class="toolhead">Add Member's for Renewal</span>
+           <button mat-icon-button aria-label="Close dialog"  (click)="matDialogRef.close()">
+               <mat-icon>close</mat-icon>
+           </button>
+       </mat-toolbar-row>
+   </mat-toolbar>  
+   <!-- <mat-dialog-content  fusePerfectScrollbar> -->
+<div mat-dialog-content class="p-16 pb-0 m-0"  fusePerfectScrollbar>
+  
+   <div class="tableclass"><!-- mat-elevation-z8 -->
+           
+    <!-- <button mat-mini-fab (click)="enbleSearch()" class="forbut" color="primary">
+        <mat-icon>search</mat-icon>
+         </button> -->
+          <!-- <div class="horizontal-stepper-wrapper  myclass1">
+            
+            <mat-horizontal-stepper class="mat-elevation-z4 myclass1" [linear]="true">
+              
+                <mat-step [stepControl]="horizontalStepperStep3"> -->
+
+                 <form fxLayout="column" [formGroup]="horizontalStepperStep3">
+            
+                       
+                        <div fxFlex="1 0 auto" fxLayout="row">
+                              <mat-form-field appearance="outline" fxFlex="100">
+                                 <mat-label>Select Country</mat-label>
+                                 <mat-select formControlName="country"  #singleSelect (selectionChange)="onCountrySelect()">
+                                        <ngx-mat-select-search [formControl]="countryFilterCtrl" [placeholderLabel]="'Search Country...'"  [noEntriesFoundLabel]="'No matching Country found'"></ngx-mat-select-search>
+                                        <mat-option *ngFor="let country of filteredCount | async" [value]="country['CNT_PK']">
+                                          {{country['CNT_NAME']}}
+                                        </mat-option>
+                                      </mat-select>
+                               </mat-form-field>
+                               <mat-form-field appearance="outline" fxFlex="100" class="for2field">
+                                 <mat-label>Select Region</mat-label>
+                                 <mat-select formControlName="region"  (click)="checkcountryselection()"  (selectionChange)="onRegionSelect()">
+                                        <ngx-mat-select-search [formControl]="regionFilterCtrl" [placeholderLabel]="'Search Region...'"  [noEntriesFoundLabel]="'No matching Region found'"></ngx-mat-select-search>
+                                        <mat-option *ngFor="let region of filteredRegion | async" [value]="region['RGN_PK']">
+                                          {{region['RGN_NAME']}}
+                                        </mat-option>
+                                      </mat-select>
+                               </mat-form-field>
+                              </div>
+                              <div fxFlex="1 0 auto" fxLayout="row"> 
+                                     <mat-form-field appearance="outline" fxFlex="100">
+                                             <mat-label>Select Centre</mat-label>
+                                             <mat-select formControlName="centre" (click)="checkCntryandRegselection()"  (selectionChange)="onCentreSelect()">
+                                                    <ngx-mat-select-search [formControl]="centreFilterCtrl" [placeholderLabel]="'Search Centre...'"  [noEntriesFoundLabel]="'No matching Centre found'"></ngx-mat-select-search>
+                                                    <mat-option *ngFor="let centre of filteredCentre | async" [value]="centre['CTR_PK']">
+                                                      {{centre['CTR_NAME']}}
+                                                    </mat-option>
+                                            </mat-select>
+                                     </mat-form-field>
+                                     <mat-form-field appearance="outline" fxFlex="100" class="for2field">
+                                             <mat-label>Select Church</mat-label>
+                                             <mat-select formControlName="church" (click)="checkrequiredfields()">
+                                                    <ngx-mat-select-search [formControl]="churchFilterCtrl"  [placeholderLabel]="'Search Church...'"  [noEntriesFoundLabel]="'No matching Church found'"></ngx-mat-select-search>
+                                                    <mat-option *ngFor="let church of filteredChurch | async" [value]="church['CCH_PK']">
+                                                      {{church['CCH_NAME']}}
+                                                    </mat-option>
+                                            </mat-select>
+                                       </mat-form-field>
+                             </div>
+                             <div fxFlex="1 0 auto" fxLayout="row"> 
+                                <mat-form-field class="for1field" appearance="outline" fxFlex="50">
+                                        <mat-label>Member ID</mat-label>
+                                        <input matInput   formControlName="member_id">
+                                </mat-form-field> 
+                                <mat-form-field appearance="outline" fxFlex="100" class="for2field">
+                                    <mat-label>Member Name</mat-label>
+                                    <mat-select formControlName="member_name">
+                                        <ngx-mat-select-search [formControl]="memberCtrl"  [placeholderLabel]="'Search Member...'"  [noEntriesFoundLabel]="'No matching Member found'"></ngx-mat-select-search>
+                                        <mat-option *ngFor="let member of filteredMembers | async" [value]="member['MMM_PK']">
+                                          {{member['MMM_NAME1'] + ' ' + member['MMM_NAME2'] + ' ' + member['MMM_NAME3'] }}
+                                        </mat-option>
+                                      </mat-select>
+                              </mat-form-field>
+                        </div>
+                             <div fxFlex="1 0 auto" fxLayout="row"> 
+                                    <mat-form-field class="for1field" appearance="outline" fxFlex="50">
+                                            <mat-label>Due Before</mat-label>
+                                            <input matInput  type="number" formControlName="dueBefore">
+                                    </mat-form-field> 
+                            </div>
+            
+                        <div fxLayout="row" fxLayoutAlign="center center">
+                            <!-- <button class="mr-8" mat-raised-button [disabled]="!makesearch" (click)="closeFun()" type="button" color="primary">
+                                Cancel
+                            </button> -->
+                            <button mat-raised-button  (click)="filterMembers()"  color="accent">
+                               Search
+                            </button>
+                        </div>
+            
+                    </form> 
+            
+                <!-- </mat-step> 
+           </mat-horizontal-stepper>
+    </div>      -->
+    <mat-form-field class="forfilter"  *ngIf="enabletable">
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+          </mat-form-field>
+<table mat-table [dataSource]="dataSource" class="fortable" *ngIf="enabletable" matSort>
+
+   <ng-container matColumnDef="checkbox">
+
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Select All
+            <mat-checkbox class="forCheck" (click)="selectAll()">
+            </mat-checkbox>
+        </th>
+        <mat-cell *matCellDef="let row">
+            <mat-checkbox class="forCheck" [checked]="row['checked']"
+                          (change)="onSelection(row)" >
+            </mat-checkbox> <!-- [(ngModel)]="checkboxes[contact.id]" (ngModelChange)="onSelectedChange(contact.id)"-->
+        </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="ID">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+        <td mat-cell class="idcol" *matCellDef="let row"> {{row['MMM_ID']}}</td>
+    </ng-container>
+  <!-- Name Column -->
+  <ng-container matColumnDef="Name">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+    <td mat-cell *matCellDef="let row"> {{row['MMM_NAME1'] + ' ' + row['MMM_NAME2'] + ' ' + row['MMM_NAME3']}}</td>
+  </ng-container>
+   <!-- Due Date Column -->
+   <ng-container matColumnDef="duedate">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Due Date </th>
+    <td mat-cell *matCellDef="let row"> {{row['MMM_DUE_DATE'].substring(0,10)}} </td>
+  </ng-container>
+
+  <!-- Mobile Column -->
+  <ng-container matColumnDef="Mobile">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Mobile </th>
+    <td mat-cell *matCellDef="let row"> {{row['MMM_MOBIL']}} </td>
+  </ng-container>
+
+ 
+  <ng-container matColumnDef="Edit">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+    <td mat-cell *matCellDef="let row">
+        <!-- <button mat-mini-fab   color="basic" (click)="forEdit(row)" matTooltip="Edit" class="btn-list">
+        <mat-icon>edit</mat-icon>
+         </button>
+         <button mat-mini-fab   color="basic" class="forview btn-list" (click)="forView(row)" matTooltip="View">
+                <mat-icon>remove_red_eye</mat-icon>
+                 </button>
+                 <button mat-mini-fab   color="basic" class="forview btn-list" (click)="forDelete(row)" matTooltip="Delete">
+                    <mat-icon>delete</mat-icon>
+                </button> -->
+        </td>
+  </ng-container>
+ 
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+  </tr>
+</table>
+
+    <div fxLayout="row" fxLayoutAlign="center center"  *ngIf="enabletable">
+        <button mat-raised-button (click)="addMemberforRenew()" class="forAdd" color="accent">
+            Add
+         </button>
+    </div>
+</div>
+
+</div>
+</div>
+
+
